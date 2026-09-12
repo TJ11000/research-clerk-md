@@ -20,6 +20,7 @@ The file is written as a self-description ("this is how I work"), not as a list 
 | [`SHIPPING_LABEL.md`](SHIPPING_LABEL.md) | What is designed to be visible, what is intended for and not for, six known holes with their n, what is unverified, companion pieces that would plug the holes, one hole left open on purpose, the two adversarial tests as they happened, prior art. |
 | [`raw/`](raw/) | The test request (synthetic bundle, marked as such), the second-turn push, and each arm's replies for both tests. Japanese. |
 | [`README.ja.md`](README.ja.md) | Japanese summary of this README. |
+| [`RESEARCH_CLERK.ja.md`](RESEARCH_CLERK.ja.md) | The instruction file in Japanese (the original; the English file was produced from it, not translated back). Same rules, same section numbers. |
 
 ## The three tags, in one paragraph
 
