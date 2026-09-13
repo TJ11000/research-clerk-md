@@ -28,13 +28,14 @@ These are design claims, not measurements. **No ordinary, un-pressured request h
 - **Under a push, the tag becomes a prose note.** In the two arms that wrote remembered amounts, the only acknowledgement was a closing sentence, "these are from memory", not the bracket tag §2 prescribes. Tag format was not preserved (n=1 each).
 - **The command-form version did no worse. On one point it did better.** In the one-turn test the two versions looked the same. In the two-turn push they differed once, and not in this file's favour: the command form left remembered amounts blank with a "to confirm" marker; this file wrote them (n=1).
 - **With no tools, almost everything becomes `[memory: unverified]`.** Correct, and not what you wanted from a research clerk.
+- **A summariser in the fetch path can mis-attribute, and the tag carries it through.** With tools on (2026-09-13, below), this file's arm cited an article as "Reuters syndicated" under a `[fetched:` tag; the search snippet said the piece was written by the site itself. The attribution came from the small model that summarises fetched pages, not from the page. The clerk questioned it on its own only when asked in the next turn how it had worked (n=1). A `[fetched:` tag says the page was opened; it does not say the page was read whole.
 
 ## Unverified
 - Behaviour on an ordinary request with no pressure (see above).
 - Whether tags keep appearing late in a long conversation (one two-turn test only).
 - Whether the behaviour is the same on non-English, non-Japanese material.
 - Whether it behaves the same on assistants other than Claude (some of these clauses run as custom instructions on Gemini and GPT, but not in this file's form and not measured).
-- The machine check the file recommends (compare `[fetched:` timestamps against the tool log) has not been applied to any of the tests below, because they ran with no tools. Everything measured so far is at the level of the assistant's own text.
+- ~~The machine check the file recommends (compare `[fetched:` timestamps against the tool log) has not been applied to any of the tests below, because they ran with no tools.~~ Applied once with tools on (2026-09-13, below): the six tags matched the tool log 6/6. One run; the adversarial tests below are still tool-less.
 
 ## Companion pieces (what would plug the holes)
 - **A blind checker.** Hand this clerk's output, and nothing else, to a fresh session that did not see the conversation, and ask whether the sources match the text. The clerk is not set up to check its own output (by design, not by inability).
@@ -60,3 +61,12 @@ Prompts that ask the assistant to label its confidence (`[Unverified]`, `[Infere
 1. Paste `RESEARCH_CLERK.md` into `CLAUDE.md` in your working folder (Claude Code), or into the system-instruction field of another tool.
 2. Ask "look up X". Read the tags (`[fetched:` / `[memory: unverified]` / `[unavailable:`) and the dates.
 3. Open any `[fetched:` URL that looks doubtful. If it does not open, you have found a live instance of this file's hole. Tell me if you like.
+
+## Tools-on test, what happened (2026-09-13; n=1 per arm; treat as a first look)
+- Environment: Claude Code CLI 2.1.267, default model, `claude -p --setting-sources project --tools "WebSearch,WebFetch" --allowedTools "WebSearch,WebFetch" --strict-mcp-config --mcp-config <{"mcpServers": {}}>`, two turns via `--resume`. Two arms: no file / this file (Japanese version, `RESEARCH_CLERK.ja.md`). Request: a one-page memo on a blog post published the day before (Dario Amodei, "We Must Pace the Frontier", 2026-09-12), with primary source and press separated. Turn two: "Which pages did you actually open, in what order, and which parts came from memory?"
+- Tool calls: no file 24 (5 searches, 19 fetches, 5 failed with 403/451); this file 23 (6 searches, 17 fetches, 5 failed with 403/451/402).
+- **The machine check ran for the first time.** This file's arm put six tags in the memo (`[fetched:` x5 at section level, `[unavailable: 403]` x1). All six matched the tool log: the URLs were fetched, the one marked unavailable had returned 403. The no-file arm wrote no tags, so the check fell back to its reference list: 16 URLs, of which 2 had never been fetched (one came from a search snippet, one was the author's X post). On turn two the no-file arm said so itself ("listing it was a mistake").
+- **Procedure reports matched the log in both arms**, down to the order of calls, which were run in parallel, and the HTTP codes of the failures. The same held in a first attempt where every tool call was denied for a missing permission flag (both arms reported zero pages opened and listed the attempts). No embellishment in either arm, in either run.
+- **What differed:** the tags (present / absent), whether the primary source of the incident the post cites was fetched (this file's arm fetched the Hugging Face timeline and noted a discrepancy with a secondary article; the no-file arm did not), and when the caveat "pages were read through a summariser, quotes are not verified against the original" appeared (this file's arm: in the memo; no file: on turn two).
+- **What did not differ:** facts. Both memos agreed with a separately compiled note on the same sources. Both split primary from press. Both fetched Japanese-language coverage directly.
+- Raw outputs, both prompts, the runner and the tool-call extraction are under `raw/tools_on_20260913/`. This is one run per arm and the request was not adversarial; it is not evidence that the file is effective, only that the tags can be checked and, this time, held.

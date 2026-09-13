@@ -1,0 +1,23 @@
+ 1 WebSearch: Dario Amodei "We Must Pace the Frontier"
+ 2 WebSearch: Dario Amodei blog September 2026
+ 3 WebFetch: https://darioamodei.com/post/we-must-pace-the-frontier
+ 4 WebFetch: https://www.bloomberg.com/news/articles/2026-09-12/anthropic-ceo-says-it-s-time-to-slow-pace-of-improving-ai-models  -> The server returned HTTP 403 Forbidden. Retry-After: 0  The 
+ 5 WebFetch: https://byteiota.com/dario-amodei-pace-the-frontier-ai-slowdown/
+ 6 WebSearch: アモデイ 減速 ブログ Anthropic 2026年9月
+ 7 WebSearch: Amodei "Pace the Frontier" reaction senator White House OpenAI
+ 8 WebFetch: https://www.cnn.com/2026/09/12/tech/anthropic-ceo-essay-ai  -> The server returned HTTP 451 Unavailable For Legal Reasons. 
+ 9 WebFetch: https://www.axios.com/2026/09/12/anthropic-ai-amodei-pacing  -> The server returned HTTP 403 Forbidden.  The response body w
+10 WebFetch: https://www.itmedia.co.jp/news/article/2609/13/2000001432/
+11 WebFetch: https://jp.investing.com/news/stock-market-news/article-1678349
+12 WebFetch: https://innovatopia.jp/ai/ai-news/117812/
+13 WebSearch: Hugging Face security incident OpenAI agents July 2026 postmortem
+14 WebFetch: https://x.com/DarioAmodei/status/2098773920774074715  -> The server returned HTTP 402 Payment Required.  The response
+15 WebFetch: https://darioamodei.com/post/we-must-pace-the-frontier
+16 WebFetch: https://www.yahoo.com/news/politics/articles/anthropic-ceo-calls-ai-industry-204840546.html
+17 WebFetch: https://san.com/cc/ai-leaders-back-call-to-slow-pace-of-frontier-model-development/
+18 WebFetch: https://openai.com/index/hugging-face-incident-and-the-road-ahead/  -> The server returned HTTP 403 Forbidden.  The response body w
+19 WebFetch: https://www.sbbit.jp/article/cont1/186932
+20 WebFetch: https://huggingface.co/blog/agent-intrusion-technical-timeline
+21 WebSearch: 日経 アンソロピック アモデイ ペース 減速 エッセイ
+22 WebFetch: https://forbesjapan.com/articles/detail/104638
+23 WebFetch: https://news.yahoo.co.jp/articles/c6781c3894e8ff9ebfff25aa672394c97a25657b
