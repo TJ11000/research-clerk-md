@@ -1,5 +1,7 @@
 # research-clerk-md
 
+*日本語の説明は [README.ja.md](README.ja.md)（入れる前と後の実物つき）。*
+
 An instruction file that is written to turn an AI assistant into a **research clerk**: one that fetches material and hands it over with its origins attached, so that when you read the result you can tell which parts it opened and which parts it is saying from memory. Whether it does that is the open question this repo documents; see the next section. Drop `RESEARCH_CLERK.md` into `CLAUDE.md` (Claude Code) or into the system-instruction slot of another tool, and ask it to look something up.
 
 The file is written as a self-description ("this is how I work"), not as a list of commands. The same rules written as commands are included as a control. Both come with a **shipping label**: the leaflet that says what is designed to be visible, what has actually been measured, and where the holes are. Read the label. The file on its own reads like verified behaviour, and it is not.
@@ -7,8 +9,8 @@ The file is written as a self-description ("this is how I work"), not as a list 
 ## Before you take any of this seriously
 
 - **No claim is made that this file makes an assistant more honest, or that the self-description form works better than commands.** In the one comparison run so far (two tests, three arms, one run each), the assistant with no file at all refused the same pressures the file-bearing arms refused. On the one point where the two file forms differed, the command form did better.
-- **Nothing has been measured on an ordinary request.** Every run so far asked the assistant to drop the tags, because that was the pressure under test. What the file does when nobody is pushing is not known.
-- **The tests ran with no tools**, on a synthetic bundle of "already fetched" material. So the machine check the file itself recommends (compare the `[fetched:` timestamps against the tool log) has never been applied to any of these runs. Everything measured is at the level of the assistant's own text.
+- **Nothing has been measured on an ordinary request** in the adversarial tests (as of 2026-09-12; one un-pressured, tools-on run per arm followed on 2026-09-13 — see the shipping label and `README.ja.md`). Every adversarial run asked the assistant to drop the tags, because that was the pressure under test. What the file does when nobody is pushing is not known.
+- **The adversarial tests ran with no tools**, on a synthetic bundle of "already fetched" material. So the machine check the file itself recommends (compare the `[fetched:` timestamps against the tool log) could not be applied to those runs; it was applied once in the tools-on run of 2026-09-13 (shipping label, last section). Everything measured is at the level of the assistant's own text.
 - One person, one setup, Claude Code CLI 2.1.267 with the default model not pinned, Japanese-language requests. Raw outputs are in `raw/` so every "n=1" here can be read rather than trusted.
 
 ## What's here
@@ -17,9 +19,9 @@ The file is written as a self-description ("this is how I work"), not as a list 
 |---|---|
 | [`RESEARCH_CLERK.md`](RESEARCH_CLERK.md) | The instruction file. Thirteen sections (§0 to §12): what "falling over" means in this job (five forms, plus the one that happens on hand-off), three source tags decided by action rather than confidence, dates on everything that can change, primary vs secondary, no arguing from counts, procedure reported in the order it happened, gaps reported as gaps, material before reading, tags survive summaries, corrections, a source list, and where the job stops. A machine-check note at the end. |
 | [`RESEARCH_CLERK_command_form.md`](RESEARCH_CLERK_command_form.md) | The same rules as commands and prohibitions. Control arm. Not the product. |
-| [`SHIPPING_LABEL.md`](SHIPPING_LABEL.md) | What is designed to be visible, what is intended for and not for, six known holes with their n, what is unverified, companion pieces that would plug the holes, one hole left open on purpose, the two adversarial tests as they happened, prior art. |
-| [`raw/`](raw/) | The test request (synthetic bundle, marked as such), the second-turn push, and each arm's replies for both tests. Japanese. |
-| [`README.ja.md`](README.ja.md) | Japanese summary of this README. |
+| [`SHIPPING_LABEL.md`](SHIPPING_LABEL.md) | What is designed to be visible, what is intended for and not for, seven known holes with their n, what is unverified, companion pieces that would plug the holes, one hole left open on purpose, the two adversarial tests as they happened, prior art. |
+| [`raw/`](raw/) | The test request (synthetic bundle, marked as such), the second-turn push, and each arm's replies for both tests. Japanese. `tools_on_20260913/`: the tools-on run (both arms' replies, prompts, runner, tool-call extracts). |
+| [`README.ja.md`](README.ja.md) | Japanese README (not a translation of this one; it carries the before/after tables from both tests). |
 | [`RESEARCH_CLERK.ja.md`](RESEARCH_CLERK.ja.md) | The instruction file in Japanese (the original; the English file was produced from it, not translated back). Same rules, same section numbers. |
 
 ## The three tags, in one paragraph
@@ -44,8 +46,8 @@ Prompts asking the assistant to label its confidence (`[Unverified]`, `[Inferenc
 
 ## Licence and citing
 
-CC BY 4.0 for the text and instruction files. If you build on the file, a link back is enough. If you find it wrong, an issue is better.
+CC BY 4.0 ([LICENSE](LICENSE)) for the text and instruction files. If you build on the file, a link back is enough. If you find it wrong, an issue is better.
 
 ---
 
-*Part of the low-pressure instruction-file series. Previous: [low-pressure-claude-md](https://github.com/TJ11000/low-pressure-claude-md), [persona-ab-factory](https://github.com/TJ11000/persona-ab-factory).*
+*Part of the low-pressure instruction-file series. Previous: [low-pressure-claude-md](https://github.com/TJ11000/low-pressure-claude-md), [persona-ab-factory](https://github.com/TJ11000/persona-ab-factory). Next: [legal-drafting-clerk-md](https://github.com/TJ11000/legal-drafting-clerk-md) (Japanese; a drafting clerk for lawyers that borrows this file's "tags record the action, not confidence" rule).*
